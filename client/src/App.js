@@ -9,6 +9,9 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import Appmeal from './pages/Appmeal';
 import Navbar from './components/Navbar';
+import SignupForm from './components/SignupForm';
+import LoginForm from './components/LoginForm';
+import Homepage from './pages/Homepage';
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -40,8 +43,10 @@ function App() {
         <>
           <Navbar />
           <Switch>
-            <Route exact path="/" component={Appmeal} />
-            {/* <Route exact path="/saved" component={SavedBooks} /> */}
+            <Route exact path="/Search" component={Appmeal} />
+            <Route exact path="/" component={Homepage} />
+            <Route exact path="/SignUp" component={SignupForm} />
+            <Route exact path="/Login" component={LoginForm} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>
