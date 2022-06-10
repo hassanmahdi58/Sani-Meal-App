@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from 'react';
 import food from '../assets/food.jpg'
 
 export default function Homepage() {
