@@ -14,28 +14,31 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='dark' variant='dark' expand='lg'>
+      <Navbar bg='light' variant='light' expand='lg'>
         <Container fluid>
+
+
+
           <Navbar.Brand as={Link} to='/'>
            Projec3
            </Navbar.Brand>
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/Search'>
+              <Nav.Link as={Link} to='/Search' className='searchMeal'>
                 Search For Meal
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
               {Auth.loggedIn() ? (
                 <>
-                  <Nav.Link as={Link} to='/saved'>
+                  <Nav.Link as={Link} to='/saved' className='searchMeal'>
                     See Your Meal
                   </Nav.Link>
                   
-                  <Nav.Link as={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link className='loginButton' as={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
-                <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
+                <Nav.Link className='loginButton' onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
               )}
             </Nav>
           </Navbar.Collapse>
@@ -49,6 +52,7 @@ const AppNavbar = () => {
         show={showModal}
         onHide={() => setShowModal(false)}
         aria-labelledby='signup-modal'>
+  
         {/* tab container to do either signup or login component */}
         <Tab.Container defaultActiveKey='login'>
           <Modal.Header closeButton>
@@ -58,7 +62,7 @@ const AppNavbar = () => {
                   <Nav.Link eventKey='login'>Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey='signup'>Sign Up</Nav.Link>
+                  <Nav.Link eventKey='signup' className='signupButton'>Sign Up</Nav.Link>
                 </Nav.Item>
               </Nav>
             </Modal.Title>
