@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Container, Modal, Tab } from 'react-bootstrap';
 import SignUpForm from './SignupForm';
 import LoginForm from './LoginForm';
+
 
 import Auth from '../utils/auth';
 
@@ -20,7 +22,7 @@ const AppNavbar = () => {
           <Navbar.Toggle aria-controls='navbar' />
           <Navbar.Collapse id='navbar'>
             <Nav className='ml-auto'>
-              <Nav.Link as={Link} to='/'>
+              <Nav.Link as={Link} to='/Search'>
                 Search For Meal
               </Nav.Link>
               {/* if user is logged in show saved books and logout */}
@@ -29,7 +31,8 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/saved'>
                     See Your Meal
                   </Nav.Link>
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  
+                  <Nav.Link as={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
                 <Nav.Link onClick={() => setShowModal(true)}>Login/Sign Up</Nav.Link>
@@ -39,6 +42,8 @@ const AppNavbar = () => {
         </Container>
       </Navbar>
       {/* set modal data up */}
+
+
       <Modal
         size='lg'
         show={showModal}
@@ -72,6 +77,12 @@ const AppNavbar = () => {
       </Modal>
     </>
   );
+  
 };
+
+
+
+
+
 
 export default AppNavbar;
