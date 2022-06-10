@@ -34,6 +34,10 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/saved' className='searchMeal'>
                     See Your Meal
                   </Nav.Link>
+
+                  <Nav.Link as={Link} to='/login'>
+                    Login page
+                  </Nav.Link>
                   
                   <Nav.Link className='loginButton' as={Auth.logout}>Logout</Nav.Link>
                 </>
@@ -59,7 +63,7 @@ const AppNavbar = () => {
             <Modal.Title id='signup-modal'>
               <Nav variant='pills'>
                 <Nav.Item>
-                  <Nav.Link eventKey='login'>Login</Nav.Link>
+                  <Nav.Link eventKey='login' className='signupButton' >Login</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey='signup' className='signupButton'>Sign Up</Nav.Link>
