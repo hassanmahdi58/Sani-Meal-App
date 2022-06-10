@@ -132,10 +132,11 @@ a:hover {
 
 .signupButton {
   margin-left: 3px;
+  color: black;
 }
 
 .signupButton:hover {
-  color: white;
+  color: #6c13d1;
 }
 
 .searchMeal {
@@ -146,6 +147,7 @@ a:hover {
 .searchMeal:hover {
   background-color: transparent;
 }
+
 
 .loginButton:hover {
   background-color: transparent;
