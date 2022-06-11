@@ -1,5 +1,5 @@
-import Veggie from "../components/foodSearch/Veggie"
-import Popular from "../components/foodSearch/Popular"
+import Veggie from "../components/Veggie"
+import Popular from "../components/Popular"
 
 import React from 'react'
 
