@@ -12,6 +12,7 @@ import Navbar from './components/Navbar';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import Homepage from './pages/Homepage';
+import food from './assets/food.jpg'
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -38,17 +39,21 @@ const client = new ApolloClient({
 });
 function App() {
   return (
-    <ApolloProvider client={client}>
+    <ApolloProvider style={{ backgroundImage:`url(${food})` }} client={client}>
       <Router>
         <>
+        {/* <img style={{ backgroundImage:`url(${food})` }} alt="this is food gallery" id="food"/> */}
+        
           <Navbar />
           <Switch>
             <Route exact path="/Search" component={Appmeal} />
             <Route exact path="/" component={Homepage} />
             <Route exact path="/SignUp" component={SignupForm} />
             <Route exact path="/Login" component={LoginForm} />
+            <Route exact path="/custom" component={LoginForm} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
+          
         </>
       </Router>
     </ApolloProvider>

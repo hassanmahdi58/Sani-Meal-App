@@ -13,7 +13,7 @@ const AppNavbar = () => {
 
   return (
     <>
-      <Navbar bg='light' variant='light' expand='lg'>
+      <Navbar expand='lg'>
         <Container fluid>
 
 
@@ -36,6 +36,9 @@ const AppNavbar = () => {
                   </Nav.Link>
                   <Nav.Link as={Link} to='/saved'>
                     See Your Meal Plan
+                  </Nav.Link>
+                  <Nav.Link as={Link} to='/custom'>
+                    Custom Meal Search 
                   </Nav.Link>
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
