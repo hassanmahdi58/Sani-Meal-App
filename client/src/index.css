@@ -1,14 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@300&display=swap');
+
 * {
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  /* background-color: #f3f3f3; */
-  color: #FFF;
-  background-color: #e1c6ad;
-  background-image: radial-gradient(circle, #e6ccb2 0%, #ddb892 70%, #b08968 100%);
+  font-family: 'Grandstander', 'cursive';
+  color: black;
+  background-image: radial-gradient(circle, #ff715b 0%, #ff99c8 70%, #fcf6bd 100%);
+  background-image:url('./assets/food.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .App {
