@@ -7,7 +7,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
-import Appmeal from './pages/Appmeal';
+import SearchMeal from './pages/SearchMeal';
+import SavedMeal from './pages/SavedMeal';
 import Navbar from './components/Navbar';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
@@ -37,23 +38,22 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
 function App() {
   return (
-    <ApolloProvider style={{ backgroundImage:`url(${food})` }} client={client}>
+    <ApolloProvider client={client}>
       <Router>
         <>
-        {/* <img style={{ backgroundImage:`url(${food})` }} alt="this is food gallery" id="food"/> */}
-        
           <Navbar />
           <Switch>
-            <Route exact path="/Search" component={Appmeal} />
+            <Route exact path="/Search" component={SearchMeal} />
+            <Route exact path="/saved" component={SavedMeal} />
             <Route exact path="/" component={Homepage} />
             <Route exact path="/SignUp" component={SignupForm} />
             <Route exact path="/Login" component={LoginForm} />
             <Route exact path="/custom" component={LoginForm} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
-          
         </>
       </Router>
     </ApolloProvider>

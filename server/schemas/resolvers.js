@@ -40,10 +40,10 @@ const resolvers = {
     },
     saveMeal: async (parent, {mealInfo}, context) => {
       if(context.user){
-          const mealBook = await User.findByIdAndUpdate({ _id: context.user._id }, 
-              { $addToSet: { savedBooks: mealInfo } }, 
+          const MealArray = await User.findByIdAndUpdate({ _id: context.user._id }, 
+              { $addToSet: { savedMeals: mealInfo } }, 
               { new: true, runValidators: true });
-              return mealBook;
+              return MealArray;
       }
 
       throw new AuthenticationError('You Must Be Logged In!');

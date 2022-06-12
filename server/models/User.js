@@ -19,7 +19,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    meals:[mealSchema],
+    SaveMeals:[mealSchema],
   },
   // set this to use virtual below
   {

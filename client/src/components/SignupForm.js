@@ -77,7 +77,7 @@ const SignupForm = () => {
         <Form.Group>
           <Form.Label htmlFor="username">Username</Form.Label>
           <Form.Control
-            type="text"
+            type="text-block"
             placeholder="Your username"
             name="username"
             onChange={handleInputChange}

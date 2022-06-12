@@ -6,7 +6,13 @@ export const QUERY_ME = gql`
       _id
       username
       email
-     
+      savedMeals {
+        mealId
+        image
+        description
+        title
+        link
+      }
     }
   }
 `;

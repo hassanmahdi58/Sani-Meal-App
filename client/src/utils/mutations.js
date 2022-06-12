@@ -24,3 +24,36 @@ export const ADD_USER = gql`
   }
 `;
 
+export const SAVE_MEAL = gql`
+  mutation saveMeal($mealData: MealInput!) {
+    saveMeal(mealData: $mealData) {
+      _id
+      username
+      email
+      savedMeals {
+        mealId
+        image
+        description
+        title
+        link
+      }
+    }
+  }
+`;
+
+export const REMOVE_MEAL = gql`
+  mutation removeMeal($mealId: ID!) {
+    removeMeal(mealId: $mealId) {
+      _id
+      username
+      email
+      savedMeals {
+        mealId
+        image
+        description
+        title
+        link
+      }
+    }
+  }
+`;
