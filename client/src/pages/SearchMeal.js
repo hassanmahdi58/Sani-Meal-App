@@ -41,19 +41,18 @@ const SearchMeals = () => {
 
     try {
       const response = await fetch(
-        // `https://api.spoonacular.com/mealplanner/generate?apiKey=cb1c464d94f142c08b156c5beddade8b=${searchInput}`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=b32f2c782426491fb92ac608fe7cdd53&query=${searchInput}`
       );
-      debugger;
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
+    
+      const recipes = await response.json();
 
-      const meals = await response.json();
-
-      const mealData = meals.map((meal) => ({
+      const mealData = recipes.results.map((meal) => ({
         mealId: meal.id,
         title: meal.title,
-        description: '',
+        description: meal.description,
         image: meal.image,
       }));
 
