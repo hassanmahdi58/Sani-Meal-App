@@ -48,7 +48,18 @@ const resolvers = {
 
       throw new AuthenticationError('You Must Be Logged In!');
   },
-  },
+  removeMeal: async (parent, { mealId }, context) => {
+
+    if(context.user){
+    const deleteMeal = await User.findOneAndUpdate({ _id: context.user._id },
+    { $pull: { savedMeals: { mealId } } },
+    { new: true });
+    return deleteMeal;
+    }
+    throw new AuthenticationError('You Must Be Logged In!');
+},
+},
 };
+
 
 module.exports = resolvers;
