@@ -77,7 +77,7 @@ const SearchMeals = () => {
 
     try {
       const { data } = await saveMeal({
-        variables: { mealData: { ...mealToSave } },
+        variables: { mealInfo: { ...mealToSave } },
       });
       console.log(savedMealIds);
       setSavedMealIds([...savedMealIds, mealToSave.mealId]);
