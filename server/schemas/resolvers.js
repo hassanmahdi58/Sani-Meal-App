@@ -38,7 +38,16 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-   
+    saveMeal: async (parent, {mealInfo}, context) => {
+      if(context.user){
+          const mealBook = await User.findByIdAndUpdate({ _id: context.user._id }, 
+              { $addToSet: { savedBooks: mealInfo } }, 
+              { new: true, runValidators: true });
+              return mealBook;
+      }
+
+      throw new AuthenticationError('You Must Be Logged In!');
+  },
   },
 };
 
