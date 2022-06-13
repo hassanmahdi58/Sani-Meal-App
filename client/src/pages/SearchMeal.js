@@ -39,22 +39,27 @@ const SearchMeals = () => {
       return false;
     }
 
+
     try {
       const response = await fetch(
+        // `https://api.spoonacular.com/mealplanner/generate?apiKey=cb1c464d94f142c08b156c5beddade8b=${searchInput}`
         `https://api.spoonacular.com/recipes/complexSearch?apiKey=b32f2c782426491fb92ac608fe7cdd53&query=${searchInput}`
       );
+      debugger;
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
-    
+
       const recipes = await response.json();
 
+      // API fetch data 
       const mealData = recipes.results.map((meal) => ({
         mealId: meal.id,
         title: meal.title,
         description: meal.description,
         image: meal.image,
       }));
+
 
       setSearchedMeals(mealData);
       setSearchInput('');
@@ -63,7 +68,7 @@ const SearchMeals = () => {
     }
   };
 
- 
+
   const handleSaveMeal = async (mealId) => {
     
     const mealToSave = searchedMeals.find((meal) => meal.mealId === mealId);
@@ -77,7 +82,7 @@ const SearchMeals = () => {
 
     try {
       const { data } = await saveMeal({
-        variables: { mealInfo: { ...mealToSave } },
+        variables: { mealData: { ...mealToSave } },
       });
       console.log(savedMealIds);
       setSavedMealIds([...savedMealIds, mealToSave.mealId]);
@@ -92,7 +97,7 @@ const SearchMeals = () => {
           <h1>Search for Meal</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
-              <Col xs={12} md={12}>
+              <Col xs={12} md={8}>
                 <Form.Control
                   name="searchInput"
                   value={searchInput}
@@ -102,7 +107,7 @@ const SearchMeals = () => {
                   placeholder="Search your Meal"
                 />
               </Col>
-              <Col xs={12} md={12}>
+              <Col xs={12} md={4}>
                 <Button type="submit" variant="success" size="lg">
                  Search
                 </Button>
@@ -116,7 +121,7 @@ const SearchMeals = () => {
         <h2>
           {searchedMeals.length
             ? `Viewing ${searchedMeals.length} results:`
-            : 'Search for a book to begin'}
+            : ''}
         </h2>
         <CardColumns>
           {searchedMeals.map((meal) => {

@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
-const mealSchema = require('./MealSchema')
+
+const mealSchema = require('./Meals')
 
 const userSchema = new Schema(
   {
@@ -44,6 +45,9 @@ userSchema.methods.isCorrectPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
 
+userSchema.virtual('mealCount').get(function () {
+  return this.savedMeals.length;
+});
 
 
 const User = model('User', userSchema);

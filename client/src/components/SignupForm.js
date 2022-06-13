@@ -73,9 +73,9 @@ const SignupForm = () => {
         >
           Something went wrong with your signup!
         </Alert>
-
+        <div class="container mx-auto px-6">
         <Form.Group>
-          <Form.Label htmlFor="username">Username</Form.Label>
+          <Form.Label  htmlFor="username">Username</Form.Label>
           <Form.Control
             type="text-block"
             placeholder="Your username"
@@ -88,7 +88,8 @@ const SignupForm = () => {
             Username is required!
           </Form.Control.Feedback>
         </Form.Group>
-
+</div>
+<div class="container mx-auto px-6">
         <Form.Group>
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control
@@ -118,6 +119,7 @@ const SignupForm = () => {
             Password is required!
           </Form.Control.Feedback>
         </Form.Group>
+        </div>
         <Button
           disabled={
             !(
@@ -133,6 +135,7 @@ const SignupForm = () => {
         </Button>
       </Form>
     </>
+   
   );
 };
 

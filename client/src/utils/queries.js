@@ -9,6 +9,7 @@ export const QUERY_ME = gql`
       savedMeals {
         mealId
         image
+        description
         title
         link
       }
