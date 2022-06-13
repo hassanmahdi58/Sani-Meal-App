@@ -17,10 +17,12 @@
   },
   "dependencies": {
     "@splidejs/react-splide": "^0.7.7",
-    "framer-motion": "^6.3.11",
-    "react-icons": "^4.4.0",
-    "styled-components": "^5.3.5",
     "bootstrap": "^5.1.3",
-    "react-router-dom": "^6.3.0"
+    "framer-motion": "^6.3.11",
+    "graphql": "^16.5.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0",
+    "styled-components": "^5.3.5",
+    "update": "^0.7.4"
   }
 }
