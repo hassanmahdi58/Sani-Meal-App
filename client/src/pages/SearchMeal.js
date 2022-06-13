@@ -38,19 +38,55 @@ const SearchMeals = () => {
     if (!searchInput) {
       return false;
     }
-
+    
 
     try {
       const response = await fetch(
         // `https://api.spoonacular.com/mealplanner/generate?apiKey=cb1c464d94f142c08b156c5beddade8b=${searchInput}`
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=b32f2c782426491fb92ac608fe7cdd53&query=${searchInput}`
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=222c7e0fe74942f7adfcebc657dae08e&query=${searchInput}`
       );
-      debugger;
       if (!response.ok) {
         throw new Error('something went wrong!');
       }
 
       const recipes = await response.json();
+      let testRec = recipes.results
+      let recipeID = []
+      let url = []
+
+      for (let i = 0; i < testRec.length; i++) {
+        recipeID.push(recipes.results[i].id);
+        url.push(`https://api.spoonacular.com/recipes/${recipeID[i]}/information?apiKey=222c7e0fe74942f7adfcebc657dae08e`)
+      }
+      console.log(recipeID);
+      console.log(url)
+
+
+      setSearchedMeals(mealData);
+      setSearchInput('');
+
+      // const recipeSearch = await fetch (
+      //   // `https://api.spoonacular.com/recipes/${recipeID}/information?apiKey=b32f2c782426491fb92ac608fe7cdd53`
+      //   url
+      //   );
+      //     if (!recipeSearch.ok) {
+      //       throw new Error('something went wrong!');
+      //     }
+
+      let testRec1 = []
+      for (let i = 0; i < testRec.length; i++) {
+        // const element = array[index];
+        const recipeSearch = await fetch (
+          // `https://api.spoonacular.com/recipes/${recipeID}/information?apiKey=b32f2c782426491fb92ac608fe7cdd53`
+          url[i]
+          );
+          // if (!response.ok) {
+          //   throw new Error('something went wrong!');
+          // }
+          const recipes1 = await recipeSearch.json();
+          testRec1.push(recipes1.summary)
+      }
+      console.log(testRec1[1])
 
       // API fetch data 
       const mealData = recipes.results.map((meal) => ({
@@ -60,13 +96,73 @@ const SearchMeals = () => {
         image: meal.image,
       }));
 
-
-      setSearchedMeals(mealData);
-      setSearchInput('');
     } catch (err) {
       console.error(err);
     }
+
+    
   };
+
+  // const handleFormSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   if (!searchInput) {
+  //     return false;
+  //   }
+
+  //   try {
+  //     const response = await fetch(
+  //       `https://api.spoonacular.com/recipes/complexSearch?apiKey=b32f2c782426491fb92ac608fe7cdd53&query=${searchInput}`
+  //     );
+  //     if (!response.ok) {
+  //       throw new Error('something went wrong!');
+  //     }
+
+  //     const recipes = await response.json();
+
+  //     let testRec = recipes.results
+  //     let recipeID = []
+  //     let url = []
+
+  //     for (let i = 0; i < testRec.length; i++) {
+  //       recipeID.push(recipes.results[i].id);
+
+  //       url.push(`https://api.spoonacular.com/recipes/${recipeID[i]}/information?apiKey=b32f2c782426491fb92ac608fe7cdd53`)
+  //     }
+  //     console.log(recipeID);
+  //     console.log(url)
+
+      
+
+
+  //     // for (let i = 0; i < testRec.length; i++) {
+  //     //   let recipeID = recipes.results[i].id;
+  //     //   console.log(recipeID);
+  //     // }
+
+  //     const recipeSearch = await fetch (
+  //       // `https://api.spoonacular.com/recipes/${recipeID}/information?apiKey=b32f2c782426491fb92ac608fe7cdd53`
+  //       url
+  //       );
+  //       if (!recipeSearch.ok) {
+  //         throw new Error('something went wrong!');
+  //       }
+
+  //     const recipoo = await recipeSearch.json();
+  //       console.log(recipoo.results)
+  //     const mealData = recipoo.map((meal) => ({
+  //       mealId: meal.id,
+  //       title: meal.title,
+  //       image: meal.image,
+  //       mealUrl: meal.sourceURL,
+  //     }));
+
+  //     setSearchedMeals(mealData);
+  //     setSearchInput('');
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
 
   const handleSaveMeal = async (mealId) => {
@@ -82,7 +178,7 @@ const SearchMeals = () => {
 
     try {
       const { data } = await saveMeal({
-        variables: { mealData: { ...mealToSave } },
+        variables: { mealInfo: { ...mealToSave } },
       });
       console.log(savedMealIds);
       setSavedMealIds([...savedMealIds, mealToSave.mealId]);
@@ -137,7 +233,7 @@ const SearchMeals = () => {
                 <Card.Body>
                   <Card.Title>{meal.title}</Card.Title>
                   {/* <p className="small">Authors: {book.authors}</p> */}
-                  <Card.Text>{meal.description}</Card.Text>
+                  <Card.Text>{meal.summary}</Card.Text>
                   {Auth.loggedIn() && (
                     <Button
                       disabled={savedMealIds?.some(

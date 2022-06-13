@@ -7,7 +7,6 @@ const typeDefs = gql`
     email: String
     savedMeals: [MealSchema]
   }
-
   type MealSchema {
     mealId: ID!
     title: String!
@@ -20,7 +19,6 @@ const typeDefs = gql`
     token: ID!
     user: User
   }
-
   input SaveMealSchema {
     mealId: ID!
     title: String!
@@ -28,15 +26,13 @@ const typeDefs = gql`
     image: String
     link: String
   }
-
   type Query {
     me: User
   }
-
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveMeal(mealData: MealInput!): User
+    saveMeal(mealInfo: SaveMealSchema!): User
     removeMeal(mealId: ID!): User
   }
 `;
