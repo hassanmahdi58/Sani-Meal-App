@@ -38,15 +38,12 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    saveMeal: async (parent, {mealData}, context) => {
+    saveMeal: async (parent, {mealInfo}, context) => {
       if(context.user){
-          const updatedUser = await User.findByIdAndUpdate(
-              { _id: context.user._id }, 
-              { $push: { savedMeals: mealData} }, 
-              { new: true}
-              );
-
-              return updatedUser;
+          const MealArray = await User.findByIdAndUpdate({ _id: context.user._id }, 
+              { $addToSet: { savedMeals: mealInfo } }, 
+              { new: true, runValidators: true });
+              return MealArray;
       }
 
       throw new AuthenticationError('You Must Be Logged In!');
@@ -54,13 +51,10 @@ const resolvers = {
   removeMeal: async (parent, { mealId }, context) => {
 
     if(context.user){
-    const updatedUser = await User.findOneAndUpdate(
-      { _id: context.user._id },
+    const deleteMeal = await User.findOneAndUpdate({ _id: context.user._id },
     { $pull: { savedMeals: { mealId } } },
-    { new: true }
-    );
-
-    return updatedUser;
+    { new: true });
+    return deleteMeal;
     }
     throw new AuthenticationError('You Must Be Logged In!');
 },

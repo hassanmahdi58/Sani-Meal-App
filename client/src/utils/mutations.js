@@ -25,8 +25,8 @@ export const ADD_USER = gql`
 `;
 
 export const SAVE_MEAL = gql`
-  mutation saveMeal($mealData: MealInput!) {
-    saveMeal(mealData: $mealData) {
+  mutation saveMeal($mealInfo: SaveMealSchema!) {
+    saveMeal(mealInfo: $mealInfo) {
       _id
       username
       email
