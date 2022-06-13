@@ -7,7 +7,7 @@ export const getSavedMealIds = () => {
 };
 
 export const saveMealIds = (mealIdArr) => {
-  if (mealIdArr.length) {
+  if (mealIdArr) {
     localStorage.setItem('saved_meals', JSON.stringify(mealIdArr));
   } else {
     localStorage.removeItem('saved_meals');

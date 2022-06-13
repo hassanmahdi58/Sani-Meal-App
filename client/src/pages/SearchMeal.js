@@ -82,7 +82,7 @@ const SearchMeals = () => {
       console.log(savedMealIds);
       setSavedMealIds([...savedMealIds, mealToSave.mealId]);
     } catch (err) {
-      console.error(err);
+      console.error();
     }
   };
   return (
