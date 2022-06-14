@@ -107,7 +107,7 @@ const SearchMeals = () => {
                   <Card.Body>
                     <Card.Title>{meal.title}</Card.Title>
                     {/* <p className="small">Authors: {book.authors}</p> */}
-                    <Card.Text>{meal.description}</Card.Text>
+                    <Card.Text><span dangerouslySetInnerHTML={{ __html: meal.description }}/></Card.Text>
                     {Auth.loggedIn() && (
                       <Button
                         disabled={savedMealIds?.some(
