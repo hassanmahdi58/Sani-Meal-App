@@ -13,7 +13,7 @@ import Navbar from './components/Navbar';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
 import Homepage from './pages/Homepage';
-import food from './assets/food.jpg'
+
 
 // Construct our main GraphQL API endpoint
 const httpLink = createHttpLink({

@@ -8,7 +8,7 @@ import {
   Card,
   CardColumns,
 } from "react-bootstrap";
-
+import "./Homepage.css";
 import { useMutation, useLazyQuery } from "@apollo/client";
 import { SAVE_MEAL } from "../utils/mutations";
 import { SEARCH_RECIPES } from "../utils/queries";
@@ -62,8 +62,8 @@ const SearchMeals = () => {
   };
   return (
     <>
-      <Jumbotron fluid className="text-light bg-dark">
-        <Container>
+     
+        <Container className="Container">
           <h1>Search for Meal</h1>
           <Form onSubmit={handleFormSubmit}>
             <Form.Row>
@@ -85,12 +85,11 @@ const SearchMeals = () => {
             </Form.Row>
           </Form>
         </Container>
-      </Jumbotron>
 
       <Container>
         <h2>
           {data?.searchRecipes &&
-            `Viewing ${data?.searchRecipes.length} results`}
+            ` Please Check you Meal Search Below `}
         </h2>
         <CardColumns>
           {data?.searchRecipes &&
@@ -105,8 +104,7 @@ const SearchMeals = () => {
                     />
                   ) : null}
                   <Card.Body>
-                    <Card.Title>{meal.title}</Card.Title>
-                    {/* <p className="small">Authors: {book.authors}</p> */}
+                    <Card.Title >{meal.title}</Card.Title>
                     <Card.Text><span dangerouslySetInnerHTML={{ __html: meal.description }}/></Card.Text>
                     {Auth.loggedIn() && (
                       <Button
@@ -119,8 +117,8 @@ const SearchMeals = () => {
                         {savedMealIds?.some(
                           (savedId) => savedId === meal.mealId
                         )
-                          ? " Already Saved!"
-                          : "Save This Meal!"}
+                          ? " Already Added"
+                          : "Add This Meal"}
                       </Button>
                     )}
                   </Card.Body>
