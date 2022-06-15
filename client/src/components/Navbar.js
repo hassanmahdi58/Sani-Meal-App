@@ -27,8 +27,11 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
-                    See Your Meal Plan
+                    View Saved Meals
                   </Nav.Link>
+                  {/* <Nav.Link as={Link} to='/calendar'>
+                    Meal Calendar
+                  </Nav.Link> */}
                   <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
                 </>
               ) : (
