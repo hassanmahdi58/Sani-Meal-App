@@ -74,7 +74,7 @@ const SavedMeals = () => {
                 <Card.Body>
                   <Card.Title>{meal.title}</Card.Title>
                
-                  <Card.Text>{meal.description}</Card.Text>
+                  <Card.Text><span dangerouslySetInnerHTML={{ __html: meal.description }}/></Card.Text>
                   <Button
                     className="btn-block btn-danger"
                     onClick={() => handleDeleteMeal(meal.mealId)}
