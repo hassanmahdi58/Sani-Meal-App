@@ -24,7 +24,6 @@ const typeDefs = gql`
     title: String!
     description: String
     image: String
-    link: String
   }
 
   type Recipe {
