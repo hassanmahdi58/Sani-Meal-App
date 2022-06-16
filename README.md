@@ -16,6 +16,11 @@ Deployed Heroku Link -
 
 ## Screenshots
 
+![image](https://user-images.githubusercontent.com/44465378/174162979-0b073c1a-37ad-41b0-b838-44135410f46f.png)
+
+![image](https://user-images.githubusercontent.com/44465378/174163069-d1ea6698-0c2e-4d0f-a4fa-5d6920908f4e.png)
+
+
 ## Technology Used
 1. React.js
 2. MongoDB
