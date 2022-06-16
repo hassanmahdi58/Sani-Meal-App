@@ -36,6 +36,7 @@ export const SAVE_MEAL = gql`
         description
         title
         link
+        __typename
       }
     }
   }
