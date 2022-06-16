@@ -41,23 +41,23 @@ const SearchMeals = () => {
     setSearchInput("");
   };
 
+  const mealData = data?.searchRecipes.map((meal) => {
+    return meal;
+  });
   // const handleSaveMeal = async (searchRecipes) => {
   //   const mealToSave = searchedMeals.find((mealId) => mealId === searchRecipes);
 
   
-  const handleSaveMeal = async (mealId, title, description) => {
+  const handleSaveMeal = async (mealId) => {
+    const mealToSave = mealData.find((meal) => meal.mealId === mealId);
 
-  debugger;
-    const mealToSave = searchedMeals.find((meal) => meal.mealId === mealId);
-
-    debugger; 
+    debugger;
+ 
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
       return false;
     }
-
-    debugger;
 
     try {
       const { data } = await saveMeal({
