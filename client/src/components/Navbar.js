@@ -12,8 +12,7 @@ const AppNavbar = () => {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <>
-       
+    <> 
       <Navbar className="Navbar">
         <Container fluid>
           <Navbar.Brand as={Link} to='/'>
@@ -29,12 +28,12 @@ const AppNavbar = () => {
               {Auth.loggedIn() ? (
                 <>
                   <Nav.Link as={Link} to='/saved'>
-                    View Saved Meals
+                    <h2>View Saved Meals</h2>
                   </Nav.Link>
                   {/* <Nav.Link as={Link} to='/calendar'>
                     Meal Calendar
                   </Nav.Link> */}
-                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                  <Nav.Link onClick={Auth.logout}><h2>Logout</h2></Nav.Link>
                 </>
               ) : (
                 <>
