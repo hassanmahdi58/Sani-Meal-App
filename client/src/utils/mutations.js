@@ -35,7 +35,7 @@ export const SAVE_MEAL = gql`
         image
         description
         title
-        link
+        sourceUrl
         __typename
       }
     }
@@ -53,7 +53,7 @@ export const REMOVE_MEAL = gql`
         image
         description
         title
-        link
+        sourceUrl
       }
     }
   }

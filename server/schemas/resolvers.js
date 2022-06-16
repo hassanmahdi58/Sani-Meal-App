@@ -49,11 +49,12 @@ const resolvers = {
       const extendedRecipeInfo = await Promise.all(recipeInfoPromises);
 
       return extendedRecipeInfo.map(
-        ({ data: { id, title, summary, image } }) => ({
+        ({ data: { id, title, summary, image, sourceUrl } }) => ({
           mealId: id,
           title,
           description: summary,
           image,
+          sourceUrl,
         })
       );
     },

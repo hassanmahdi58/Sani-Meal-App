@@ -11,7 +11,7 @@ export const QUERY_ME = gql`
         image
         description
         title
-        link
+        sourceUrl
       }
     }
   }
@@ -24,6 +24,7 @@ export const SEARCH_RECIPES = gql`
       title
       description
       image
+      sourceUrl
     }
   }
 `;

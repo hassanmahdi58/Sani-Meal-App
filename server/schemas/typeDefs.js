@@ -12,7 +12,7 @@ const typeDefs = gql`
     title: String!
     description: String
     image: String
-    link: String
+    sourceUrl: String
   }
 
   type Auth {
@@ -24,6 +24,7 @@ const typeDefs = gql`
     title: String!
     description: String
     image: String
+    sourceUrl: String
   }
 
   type Recipe {
@@ -31,6 +32,7 @@ const typeDefs = gql`
     title: String!
     description: String!
     image: String!
+    sourceUrl: String
   }
 
   type Query {
