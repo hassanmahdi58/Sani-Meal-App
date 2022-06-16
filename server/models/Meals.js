@@ -17,9 +17,9 @@ const mealSchema = new Schema({
   image: {
     type: String,
   },
-  link: {
+  sourceUrl: {
     type: String,
-  },
+  }
 });
 
 module.exports = mealSchema;

@@ -30,9 +30,6 @@ const AppNavbar = () => {
                   <Nav.Link as={Link} to='/saved'>
                     <h2>View Saved Meals</h2>
                   </Nav.Link>
-                  <Nav.Link as={Link} to='/calendar'>
-                    Meal Calendar
-                  </Nav.Link>
                   <Nav.Link onClick={Auth.logout}><h2>Logout</h2></Nav.Link>
                 </>
               ) : (
