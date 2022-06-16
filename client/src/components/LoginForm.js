@@ -5,8 +5,8 @@ import { Form, Button, Alert } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
-
 import Auth from '../utils/auth';
+
 
 const LoginForm = () => {
   const [userFormData, setUserFormData] = useState({ email: '', password: '' });
@@ -66,7 +66,11 @@ const LoginForm = () => {
         >
           Something went wrong with your login credentials!
         </Alert>
+        <div className="row d-flex justify-content-center">
+        <div className="col-md-4">
+        <div className="login">
         <Form.Group>
+        <h4 >Welcome Back!</h4>
           <Form.Label htmlFor="email">Email</Form.Label>
           <Form.Control
             type="text"
@@ -102,6 +106,9 @@ const LoginForm = () => {
         >
           Submit
         </Button>
+        </div>
+        </div>
+        </div>
       </Form>
     </>
   );

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
+import { Form, Button, Alert  } from 'react-bootstrap';
 
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
@@ -73,11 +73,15 @@ const SignupForm = () => {
         >
           Something went wrong with your signup!
         </Alert>
+        <div className="row d-flex justify-content-center">
+        <div className="col-md-4">
+        <div className="login">
+          <h2> Create Sani Account Below!</h2>
         <Form.Group>
           <Form.Label  htmlFor="username">Username</Form.Label>
           <Form.Control 
             type="text-block"
-            placeholder="Your username"
+            placeholder="Your username" 
             name="username"
             onChange={handleInputChange}
             value={userFormData.username}
@@ -128,6 +132,9 @@ const SignupForm = () => {
         >
           Submit
         </Button>
+        </div>
+        </div>
+        </div>
       </Form>
     </>
   );

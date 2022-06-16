@@ -9,7 +9,6 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import SearchMeal from './pages/SearchMeal';
 import SavedMeal from './pages/SavedMeal';
-// import MealCalendar from './pages/Calendar';
 import Navbar from './components/Navbar';
 import SignupForm from './components/SignupForm';
 import LoginForm from './components/LoginForm';
@@ -49,7 +48,6 @@ function App() {
           <Switch>
             <Route exact path="/Search" component={SearchMeal} />
             <Route exact path="/saved" component={SavedMeal} />
-            {/* <Route exact path="/Calendar" component={MealCalendar} /> */}
             <Route exact path="/" component={Homepage} />
             <Route exact path="/SignUp" component={SignupForm} />
             <Route exact path="/Login" component={LoginForm} />
@@ -60,6 +58,8 @@ function App() {
       </Router>
     </ApolloProvider>
   );
+  
 }
+
 
 export default App;
