@@ -104,6 +104,9 @@ const SearchMeals = () => {
 
       <Container>
         <h2>
+          {loading && `LOADING...`} 
+        </h2>
+        <h2>
           {data?.searchRecipes &&
             ` Please Check you Meal Search Below `}
         </h2>
