@@ -15,8 +15,25 @@ import { removeMealId } from '../utils/localStorage';
 import Auth from '../utils/auth';
 
 const SavedMeals = () => {
-  const { loading, data } = useQuery(QUERY_ME);
-  const [removeMeal, { error }] = useMutation(REMOVE_MEAL);
+  const { loading, data } = useQuery(QUERY_ME, {
+    fetchPolicy: "network-only"
+  });
+  const [removeMeal, { error }] = useMutation(REMOVE_MEAL, {
+    update: (cache, {data}) => {
+      const existing = cache.readQuery({query: QUERY_ME});
+
+
+      cache.writeQuery({
+        query: QUERY_ME,
+        data: {
+          me: {
+            ...existing.me,
+            savedMeals: data.removeMeal.savedMeals
+          }
+        }
+      })
+    }
+  });
 
   const userData = data?.me || {};
 

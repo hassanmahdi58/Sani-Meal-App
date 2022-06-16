@@ -52,7 +52,6 @@ const SearchMeals = () => {
     const mealToSave = mealData.find((meal) => meal.mealId === mealId);
     // const mealToSave = requiredMealInfo.pop((__typ) => meal.__typename === __typename);
 
-    debugger;
  
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
