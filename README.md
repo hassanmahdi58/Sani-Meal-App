@@ -14,6 +14,8 @@ On this application, we have built a Food Planner where the user can search up m
 
 Deployed Heroku Link - 
 
+https://sanimealapp.herokuapp.com/
+
 ## Screenshots
 
 ![image](https://user-images.githubusercontent.com/44465378/174162979-0b073c1a-37ad-41b0-b838-44135410f46f.png)
