@@ -23,6 +23,7 @@ class HomePage extends React.Component {
         </div>
         <Footer/>
       </div>
+      
     );
   }
 }
