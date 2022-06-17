@@ -40,9 +40,7 @@ body {
  
   }
   
-  h3 {
-    
-  }
+
   
   hr {
     border: 0.5px solid #ddd;
@@ -103,11 +101,25 @@ body {
       font-family:Roblox;
   }
 
-  .ml-auto h1{
-         font-size: 25px;
-         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  .ml-auto h2{
+         font-size: 30px;
+         font-family:cursive;
+         color:rgb(20, 20, 56);
   }
   
+  .dashboard{
+    background-size: 100%;
+    padding: 50px;
+    box-sizing: border-box;
+    border-top: 100px solid rgb(20, 20, 56);
+  }
+
+  .dashboard h1{
+    font-size: 65px;
+    border-bottom: 2px solid;
+    text-align: center;
+    font-family: MemphisRiver;
+  }
   .main-container {
     background: url("https://img.freepik.com/free-photo/top-view-different-vegetables-with-seasonings-dark-background-salad-health-meal-food_140725-86039.jpg?t=st=1655395711~exp=1655396311~hmac=615123517d83d9146916caacb3d1c6ea597c58bf1aca5f531da0fb27e055e1ef&w=1380");
     background-size: 100%;
@@ -124,8 +136,16 @@ body {
       margin-top: 100px;
       font-family: MemphisRiver;
       margin-bottom: 25px;
-      margin-right: 500px;
+     
   }
+
+  .container h2{
+    font-size: 50px;
+    margin-top: 100px;
+    font-family: MemphisRiver;
+    margin-bottom: 25px;
+    margin-right: 500px;
+}
   
   .home-text-container {
     padding-top: 22vh;

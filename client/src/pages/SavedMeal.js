@@ -65,19 +65,11 @@ const SavedMeals = () => {
 
   return (
     <>
-      <Jumbotron fluid className="text-light bg-primary">
-        <Container>
-          <h1>Viewing {userData.username}'s Meals!</h1>
-        </Container>
-      </Jumbotron>
+        <div className="dashboard">
+          <h1>Dashboard {userData.username}'s Meals!</h1>
+        </div>
       <Container>
-        <h2>
-          {userData.savedMeals?.length
-            ? `Viewing ${userData.savedMeals.length} saved ${
-                userData.savedMeals.length === 1 ? 'meal' : 'meals'
-              }:`
-            : 'You have nothing here!'}
-        </h2>
+        <h2> Check your saved meal!</h2>
         <CardColumns>
           {userData.savedMeals?.map((meal) => {
             return (

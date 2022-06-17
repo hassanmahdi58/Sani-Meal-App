@@ -1,41 +1,25 @@
-// import React, {PureComponent} from 'react';
-// import { Link } from 'react-router-dom'; 
+import React from "react";
+// import FacebookIcon from "@mui/icons-material/Facebook";
+// import InstagramIcon from "@mui/icons-material/Instagram";
+// import TwitterIcon from "@mui/icons-material/Twitter";
+// import YouTubeIcon from "@mui/icons-material/YouTube";
 
-// class Footer extends PureComponent {
-//   // shouldComponentUpdate (nextProps, nextState) {
-//   //   if(this.state !== nextState) {
-//   //     return true
-//   //   } else {
-//   //     return false
-//   //   }
-//   // }
+import "./Footer.css";
 
-//   render () {
-//     return (
-//       <footer className="Footer">
-  
-        
-      
-  
-      
-//           <div className="Footer__socials">
-//           <Link to="#" className="Footer__icon"><i className="fab fa-facebook-f"/></Link>
-//           <Link to="#" className="Footer__icon"><i className="fab fa-twitter"/></Link>
-//           <Link to="#" className="Footer__icon"><i className="fab fa-instagram"/></Link>
-//           <Link to="#" className="Footer__icon"><i className="fab fa-youtube"/></Link>      
-//         </div>
-  
-  
-//         <div className="Footer__copyright">
-//           <Link to="/">
-//             &copy; BrandName
-//           </Link>
-//         </div>
-        
-//       </footer>
-//     ); 
-  
-  
+const Footer = () => {
+  return (
+   
+    <footer>
+    <div class="wrapper">
+    <small>&copy;2022 <strong>Sani Meal App</strong>, All Rights Reserved</small>
+    <nav class="footer-nav">
+      <a href="#">Back to Top</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy</a>
+    </nav>
+  </div>
+  </footer>
+  );
+};
 
-
-// export default Footer;
+export default Footer;
