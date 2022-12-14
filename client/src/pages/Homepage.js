@@ -1,8 +1,8 @@
 import React from "react";
 import "./Homepage.css";
 import { Link } from "react-router-dom";
-import Particle from ".././Particle";
-import Footer from '.././components/Footer'
+
+
 
 class HomePage extends React.Component {
   render() {
@@ -18,10 +18,10 @@ class HomePage extends React.Component {
             <button className="buttonhome">
               <p>Get Started</p>
             </button>
-          <Particle/>
+        
           </Link>
         </div>
-        <Footer/>
+       
       </div>
       
     );
